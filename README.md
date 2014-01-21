@@ -20,7 +20,7 @@ Deploying a three-node Cassandra cluster:
 
 Note!  cassandra 2.x.x uses java 7, once you have done librarian-chef install you will need to change to vagrant/cookbooks/java/attributes and edit default.rb
 
-    default['java']['jdk_version'] = '6'
+    default['java']['jdk_version'] = '7'
     
 SSH into the first node and check the status of the ring:
 
