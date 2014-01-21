@@ -14,8 +14,7 @@ cassandra_tokens = []
   ip = network + (first_ip + i).to_s
   seeds << ip
   servers << {'name' => name,
-              'ip' => ip,
-              'initial_token' => 2**127 / server_count * i}
+              'ip' => ip}
 end
 
 Vagrant::Config.run do |config|
@@ -34,9 +33,10 @@ Vagrant::Config.run do |config|
         chef.add_recipe "cassandra::tarball"
         chef.json = {
           :cassandra => {'cluster_name' => 'My Cluster',
-                         'initial_token' => server['initial_token'],
+                         'vnodes' => 256,
                          'seeds' => seeds.join(","),
                          'listen_address' => server['ip'],
+                         'broadcast_address' => server['ip'],
                          'rpc_address' => server['ip']}
         }
       end
