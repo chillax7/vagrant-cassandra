@@ -1,14 +1,14 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-## Cassandra cluster settings
-server_count = 3
+## storm cluster settings
+server_count = 1
 network = '192.168.2.'
-first_ip = 10
+first_ip = 20
 
 servers = []
 seeds = []
-cassandra_tokens = []
+storm_tokens = []
 (0..server_count-1).each do |i|
   name = 'node' + (i + 1).to_s
   ip = network + (first_ip + i).to_s
@@ -30,9 +30,9 @@ Vagrant::Config.run do |config|
         chef.cookbooks_path = ["vagrant/cookbooks", "vagrant/site-cookbooks"]
         chef.add_recipe "updater"
         chef.add_recipe "java"
-        chef.add_recipe "cassandra::tarball"
+        chef.add_recipe "storm::tarball"
         chef.json = {
-          :cassandra => {'cluster_name' => 'My Cluster',
+          :storm => {'cluster_name' => 'My Cluster',
                          'vnodes' => 256,
                          'seeds' => seeds.join(","),
                          'listen_address' => server['ip'],
