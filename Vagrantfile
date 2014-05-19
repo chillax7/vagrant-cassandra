@@ -10,7 +10,7 @@ servers = []
 seeds = []
 storm_tokens = []
 (0..server_count-1).each do |i|
-  name = 'node' + (i + 1).to_s
+  name = 'storm' + (i + 1).to_s
   ip = network + (first_ip + i).to_s
   seeds << ip
   servers << {'name' => name,
