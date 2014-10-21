@@ -1,12 +1,23 @@
 # vagrant-cassandra
+# Modifications 21/10/2014 to work on a Windows Host - CIH
+# Note at various times during this you will need to reboot to fix your path...
 
 vagrant-cassandra quickly provisions a multi-VM [Cassandra](http://cassandra.apache.org/) deployment using [Vagrant](http://vagrantup.com). It leverages the [cassandra-chef-cookbook](https://github.com/michaelklishin/cassandra-chef-cookbook) project to do the heavy lifting.
 
 ## Dependencies
 
 * Vagrant
+
+Follow instructions on this link 
+https://github.com/lynnaloo/xtuple-vagrant/wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host
+to get Vagrant up and running on a windows host...
+
 * VirtualBox
 * librarian
+
+Follow instructions on this link
+http://www.snip2code.com/Snippet/87310/vagrant-librarian-chef-windows/
+to get Librarian up and runnning on a windows host
 
 ## Usage
 
